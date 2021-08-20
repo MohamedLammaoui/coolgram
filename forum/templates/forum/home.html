@@ -5,13 +5,50 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="d-flex flex-row">
-        <div class="d-flex justify-content-center card m-5 shadow-lg" style="width: 18rem; shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title text-white">Card title</h5>
-                <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+<div class="container">
+    <div class="row py-3 ">
+        <div class="col-3 order-2" id="sticky-sidebar">
+            <div class="sticky-top">
+                <div class="nav flex-column d-none d-sm-block mt-5">
+                    {% include "forum/sidebar.html" %}
+                </div>
             </div>
         </div>
+
+        <div class="col" id="main">
+            {# Card #}
+            
+            <div class="container-fluid mt-5">
+                <div class="left column">
+                    <div class="col card m-5 shadow-lg  col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">Card title</h5>
+                            <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+
+                    <div class="col card m-5 shadow-lg col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">Card title</h5>
+                            <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                </div>
+            </div>
+
+            {# End Card #}
+        </div>
     </div>
+</div>
+            
+
+
+
+            
+        {# End Container #}
+    </div>
+
+    
 {% endblock content %}

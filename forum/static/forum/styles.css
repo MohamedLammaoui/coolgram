@@ -22,7 +22,7 @@ h1 {
     background-color: #332940;
 }
 
-form, label  {
+form, label, li {
     color: white !important;
 }
 
