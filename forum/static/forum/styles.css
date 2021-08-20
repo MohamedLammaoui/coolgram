@@ -1,4 +1,28 @@
-
 body {
     background-color: #121212;
 }
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: #DBB2FF;
+}
+
+h1 {
+    color: white;
+}
+
+.jumbotron {
+    background-color: #332940;
+}
+
+.card  {
+    background-color: #332940;
+}
+
+form, label  {
+    color: white !important;
+}
+
