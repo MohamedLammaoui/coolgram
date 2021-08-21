@@ -11,3 +11,4 @@ class CustomAuthenticationForm(AuthenticationForm):
 class PostForm(forms.Form):
     title = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea)
+    image = forms.ImageField()

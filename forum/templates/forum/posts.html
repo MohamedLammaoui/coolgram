@@ -1,0 +1,14 @@
+{% for post in posts %}
+                        
+
+                        <div class="card mt-5" style="width: 40rem;">
+                            <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h2 class="card-title text-white">{{ post.title }}</h2>
+                                <p class="card-text text-white">{{ post.excerpt }}</p>
+                                <a href="{% url 'post-detail' post.slug %}" class="btn btn-primary">Full Post</a>
+                            </div>
+                        </div>
+                        
+
+{% endfor %}

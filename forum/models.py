@@ -3,8 +3,9 @@ from django.conf import settings
 
 class Post(models.Model):
     title = models.CharField(max_length=100, null=False)
-    excerpt = models.CharField(max_length=500)
-    message = models.TextField(max_length=500, null=False)
+    excerpt = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="posts", null=True)
+    message = models.TextField(max_length=200, null=False)
     slug = models.SlugField(max_length=50)
     likes = models.IntegerField(default=0)
     date = models.DateTimeField(auto_now=True)

@@ -1,36 +1,57 @@
 {% extends 'forum/base.html' %}
 
+{% load crispy_forms_filters %}
+
 {% block title %}
     Home
 {% endblock title %}
 
 {% block content %}
 
-<div class="container">
-    <div class="row py-3 ">
-        <div class="col-3 order-2" id="sticky-sidebar">
-            <div class="sticky-top">
-                <div class="nav flex-column d-none d-sm-block mt-5">
-                    {% include "forum/sidebar.html" %}
+{% if  user.is_authenticated %}
+    <div class="container">
+        <div class="row py-3 ">
+            <div class="col-3 order-2" id="sticky-sidebar">
+                <div class="sticky-top">
+                    <div class="nav flex-column d-none d-sm-block mt-5">
+                    
+                        {% include "forum/sidebar.html" %}
+                    </div>
                 </div>
             </div>
-        </div>
+{% endif %}
+
 
         <div class="col" id="main">
             {# Card #}
-            
-            {% for post in posts %}
-                <div class="container-fluid mt-5">
-                    <div class="left column">
-                        <div class="col card m-5 shadow-lg  col-md-6">
-                            <div class="card-body">
-                                <h2 class="card-title text-white">{{ post.title }}</h2>
-                                <p class="card-text text-white">{{ post.excerpt }}</p>
-                                <a href="#" class="btn btn-primary">Full post</a>
-                            </div>
-                        </div>
+
+            {% if not user.is_authenticated %}
+                <div class="card mx-auto mt-5 p-5" style="width: 40rem;">
+                <form class="mt-3" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <form class="form-signin">
+                            {% csrf_token %}
+
+                                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                                    {{ form|crispy }}
+
+                                <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Sign in</button>
+                        </form>
+
+                        <input type="hidden" name="next" value="{{ next }}" />
+
+                        <p class="text-white pt-4 pb-1"><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+                    </div>
+                </form>
                 </div>
-            {% endfor %}
+
+            {% else %}
+            
+            {% include "forum/posts.html" %}
+
+            {% endif %}
 
             {# End Card #}
         </div>
@@ -46,3 +67,10 @@
 
     
 {% endblock content %}
+
+
+
+
+
+
+
