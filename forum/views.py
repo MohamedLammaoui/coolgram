@@ -8,12 +8,13 @@ def home(request):
 class PostFormView(FormView):
     template_name = 'forum/post.html'
     form_class = PostForm
-    success_url = '/thanks/'
+    success_url = '/'
 
     def form_valid(self, form):
-        # This method is called when valid form data has been POSTed.
-        # It should return an HttpResponse.
-        form.send_email()
-        return super().form_valid(form)
+       title = form.cleaned_data['title']
+       message = form.cleaned_data['message']
+       print('it went here')
+       print(f'{title} with the following message: {message}')
+       
 
 # Create your views here.
