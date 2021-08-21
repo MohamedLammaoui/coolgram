@@ -3,10 +3,10 @@ from django.conf import settings
 
 class Post(models.Model):
     title = models.CharField(max_length=100, null=False)
-    excerpt = models.CharField(max_length=200)
+    excerpt = models.CharField(max_length=500)
     message = models.TextField(max_length=500, null=False)
     slug = models.SlugField(max_length=50)
-    likes = models.IntegerField()
+    likes = models.IntegerField(default=0)
     date = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, db_column='author')
 

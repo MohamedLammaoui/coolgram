@@ -1,0 +1,38 @@
+{% extends 'forum/base.html' %}
+
+{% block title %}
+    {{ post.tile }}
+{% endblock title %}
+
+{% block content %}
+
+
+        <div class="col" id="main">
+            {# Card #}
+            
+            <div class="container-fluid mt-5">
+                <div class="left column">
+                    <div class="col card m-5 shadow-lg  col-md-6 mx-auto">
+                        <div class="card-body">
+                            <h2 class="card-title text-white">{{ post.title }}</h2>
+                            <div class="text-white">
+                                <p class="card-text">{{ post.message|linebreaks  }}</p>
+                            </div>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+
+            {# End Card #}
+        </div>
+    </div>
+</div>
+            
+
+
+
+            
+        {# End Container #}
+    </div>
+
+    
+{% endblock content %}

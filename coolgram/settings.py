@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'meddit.urls'
+ROOT_URLCONF = 'coolgram.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'meddit.wsgi.application'
+WSGI_APPLICATION = 'coolgram.wsgi.application'
 
 
 # Database
